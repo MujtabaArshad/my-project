@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+</head>
+<body>
+
+    <input id="number1" type="text">
+    <br><br>
+    <input id="number2" type="text">
+    <br><br>
+    <label for="operator">Operator:</label>
+    <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+        <option value="%">%</option>
+    </select>
+    <br><br>
+    <button onclick="myFunction()">Submit</button>
+    <div id="result"></div>
+
+    <script>
+        function myFunction() {
+            // Get input values and operator
+            let a = parseInt(document.getElementById('number1').value);
+            let b = parseInt(document.getElementById('number2').value);
+            let operator = document.getElementById('operator').value;
+            let resultElement = document.getElementById('result');
+
+            // Clear previous result
+            resultElement.innerHTML = "";
+
+            // Check if both inputs are valid numbers
+            if (isNaN(a) || isNaN(b)) {
+                resultElement.innerHTML = 'Please enter valid numbers';
+            } else {
+                // Perform calculation based on the selected operator
+                switch (operator) {
+                    case '+':
+                        resultElement.innerHTML = a + b;
+                        break;
+                    case '-':
+                        resultElement.innerHTML = a - b;
+                        break;
+                    case '*':
+                        resultElement.innerHTML = a * b;
+                        break;
+                    case '/':
+                        // Check for division by zero
+                        resultElement.innerHTML= a/b;
+                        
+                        break;
+                    case '%':
+                        resultElement.innerHTML = a % b;
+                        break;
+                    default:
+                        resultElement.innerHTML = 'Invalid operator';
+                }
+            }
+        }
+    </script>
+
+</body>
+</html>

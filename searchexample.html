@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Example</title>
+</head>
+<body>
+
+<!-- Input, Button, and Result container -->
+<input type="text" id="searchInput" placeholder="Enter search text">
+<button id="searchButton">Search</button>
+<div id="resultContainer"></div>
+
+<script>
+// Sample array data
+const dataArray = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5'];
+
+// Function to show data based on search
+function showData() {
+  // Get the search input value
+  const searchInput = document.getElementById('searchInput').value.toLowerCase();
+
+  // Get the container element
+  const resultContainer = document.getElementById('resultContainer');
+
+  // Clear the existing content
+  resultContainer.innerHTML = '';
+
+  // Filter array based on search input
+  const filteredData = dataArray.filter(item => item.toLowerCase().includes(searchInput));
+
+  // Iterate through the filtered data and update the HTML content
+  filteredData.forEach(item => {
+    const paragraph = document.createElement('p');
+    paragraph.textContent = item;
+    resultContainer.appendChild(paragraph);
+  });
+}
+
+// Attach the showData function to the button click event
+document.getElementById('searchButton').addEventListener('click', showData);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>practice</title>
+</head>
+<body>
+    <style>
+        label{
+            display: block;
+            margin-bottom: 8px;
+            margin-left: 20px;
+        }
+        input{
+            width: 50%;
+            padding: 12px;
+            margin-bottom: 12px;
+            box-sizing: border-box;
+            border: none;
+            border: 1px solid black;
+            border-radius: 3px;
+            margin-left: 20px;
+        }
+        button{
+            background-color: greenyellow;
+            color: white;
+            padding: 10px 15px;
+            margin-left: 20px;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: wheat;
+        }
+        #errormessege1,#errormessege2,#errormessege3,#errormessege4{
+            color: red;
+            margin-right: 20px;
+        }
+       
+    </style>
+
+
+<label for="">first Name</label>
+<input id="txt1" type="text">
+<div id="errormessege1"></div>
+<br><br>
+<label for="">Last Name</label>
+<input id="txt2" type="text">
+<div id="errormessege2"></div>
+<br><br>
+<label for="">Email Name</label>
+<input id="txt3" type="text">
+<div id="errormessege3"></div>
+<br><br>
+<label for="">Contact Number</label>
+<input id="txt4" type="text">
+<div id="errormessege4"></div>
+<br><br>
+<div id="result"></div>
+<button onclick="myfunction()">submit</button>
+ <script>
+
+ myfunction=()=>{
+    let firstName=document.getElementById('txt1').value;
+    let lastName=document.getElementById('txt2').value;
+    let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let Email=document.getElementById('txt3').value;
+    let Number=document.getElementById('txt4').value;
+
+    let errormessege1=document.getElementById('errormessege1');
+    errormessege1.innerHTML="";
+    let errormessege2=document.getElementById('errormessege2');
+    errormessege1.innerHTML="";
+    let errormessege3=document.getElementById('errormessege3');
+    errormessege1.innerHTML="";
+    let errormessege4=document.getElementById('errormessege4');
+    errormessege1.innerHTML="";
+    if(firstName==""){
+        errormessege1.innerHTML="Enter your first Name";
+    }
+    else if(lastName==""){
+        errormessege2.innerHTML="Enter your last Name";
+    }
+    else if(Email==""){
+        errormessege4.innerHTML="Enter your Email";
+    }
+    else if(!Email.match(RegExp)){
+        errormessege3.innerHTML="Enter your valid Email";
+    }
+    else if(Number==""){
+        errormessege4.innerHTML="Enter your Number";
+    }
+
+    else{
+        alert('submit successfully');
+    }
+    
+    
+    
+   
+
+    
+ }
+</script>
+
+    
+
+
+
+
+    
+    
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#quiz-container {
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+    </style>
+    <div id="quiz-container">
+        <h1>JavaScript Quiz</h1>
+        <div id="question-container"></div>
+        <div id="options-container"></div>
+        <button onclick="nextQuestion()">Next</button>
+        <p id="feedback"></p>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const questions = [
+    {
+        question: 'What is the capital of France?',
+        options: ['Berlin', 'Madrid', 'Paris', 'Rome'],
+        correctAnswer: 'Paris'
+    },
+    {
+        question: 'Which programming language is this project written in?',
+        options: ['Java', 'Python', 'JavaScript', 'C++'],
+        correctAnswer: 'JavaScript'
+    },
+    // Add more questions as needed
+];
+
+let currentQuestionIndex = 0;
+
+function displayQuestion() {
+    const currentQuestion = questions[currentQuestionIndex];
+    const questionContainer = document.getElementById('question-container');
+    const optionsContainer = document.getElementById('options-container');
+    const feedback = document.getElementById('feedback');
+
+    questionContainer.textContent = currentQuestion.question;
+    optionsContainer.innerHTML = '';
+
+    currentQuestion.options.forEach((option) => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = function () {
+            checkAnswer(option);
+        };
+        optionsContainer.appendChild(button);
+    });
+
+    feedback.textContent = '';
+}
+
+function checkAnswer(userAnswer) {
+    const currentQuestion = questions[currentQuestionIndex];
+    const feedback = document.getElementById('feedback');
+
+    if (userAnswer === currentQuestion.correctAnswer) {
+        feedback.textContent = 'Correct!';
+    } else {
+        feedback.textContent = 'Incorrect. Try again.';
+    }
+}
+
+function nextQuestion() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+    } else {
+        alert('Quiz completed!');
+        // You can add more actions when the quiz is completed
+    }
+}
+
+// Initial display
+displayQuestion();
+
+    </script>
+</body>
+</html>

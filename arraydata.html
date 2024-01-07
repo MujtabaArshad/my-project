@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Button Click Example</title>
+</head>
+<body>
+
+<!-- Button and HTML container -->
+<!-- <button onclick="myfunction()" >Show Data</button> -->
+<br>
+<!-- <div id="dataContainer"></div> -->
+
+<script>
+    
+    let user=prompt('Enter the number');
+    let array=[];
+    let i=1;
+    while(i<=user){
+        array[i-1]=i;
+        console.log(array);
+        i++;
+    }
+    let sum=array.reduce((prev,curr)=>{
+        return prev*curr;
+    });
+    console.log(sum);
+
+    // let array=[1,3,99,87,99,88];
+    // let toppers= array.filter((val=>{
+    //     return val>90;
+
+    // }));
+    // console.log(toppers);
+
+
+// function myfunction(){
+//     const studentdate=[
+//         ['syed Mujtaba',[1001,'<br>']],
+//         ['Sana Khalid',[1002],'<br>'],
+//         ['huzaifa Khan',[1003],'<br>'],
+//         ['owais khan',[1004],'<br>'],
+//     ]
+   
+//     let data=document.getElementById('dataContainer');
+//     data.innerHTML="";
+//     studentdate.forEach(student=>{
+//         data.innerHTML+=`${studentdate}<br>`;
+//     })
+// }
+
+// // Sample array data
+// const dataArray = ['Item 1', 'Item 2', 'Item 3', 'Item 4', 'Item 5','item 6'];
+
+// // Function to update HTML content with array data
+// function myfunction() {
+//   // Get the container element
+//   const dataContainer = document.getElementById('dataContainer');
+
+//   // Clear the existing content
+//   dataContainer.innerHTML = '';
+
+//   // Iterate through the array and update the HTML content
+//   dataArray.forEach(item => {
+
+//     dataContainer.innerHTML +=`${item}<br>`;
+//   });
+// }
+
+
+// Attach the showData function to the button click event
+</script>
+
+</body>
+</html>

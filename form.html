@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+      
+        
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 200%;
+
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            margin-left: 20px;
+        }
+
+        input {
+            width: 50%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-left: 20px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-left: 20px;
+        }
+        .container-form{
+            background-color: #ccc;
+            width: 800px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }  
+         #errormessege1,#errormessege2,#errormessege3,#errormessege4{
+            color: red  ;
+            margin-left: 15px;
+           
+        }
+        #result{
+            color: red;
+        }
+    </style>
+ 
+    <label for="txt1">first Name</label>
+    <input id="txt1"  type="text">
+    <div id="errormessege1"></div>
+    
+    <br><br>
+    
+    <label for="txt2">last Name</label>
+    <input id="txt2" type="text">
+    <div id="errormessege2"></div>
+    
+    <br><br>
+    <label for="txt3">Email Name</label>
+    <input id="txt3" type="text">
+    <div id="errormessege3"></div>
+    
+
+    <br><br>
+    <label for="txt4">Phone No</label>
+    <input id="txt3" type="text">
+    <div id="errormessege4"></div>
+    
+    <br><br>
+    <div id="result"></div>
+   
+    <button onclick="myfunction()">submit</button>
+    <br><br>
+    <div id="userData1"></div>
+    <div id="userData2"></div>
+    <div id="userData3"></div>
+    <div id="userData4"></div>
+
+    <script>
+        
+        function myfunction(){
+            
+            
+            let firstName=document.getElementById('txt1').value;
+    
+            let lastName=document.getElementById('txt2').value;
+            let Email=document.getElementById('txt3').value;
+            let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            let phoneno =document.getElementById('txt4');
+
+
+           let result=document.getElementById('result');
+           let errormessege1=document.getElementById('errormessege1');
+           let errormessege2=document.getElementById('errormessege2');
+           let errormessege3=document.getElementById('errormessege3');
+           let errormessege4=document.getElementById('errormessege4');
+           errormessege1.innerHTML="";
+           errormessege2.innerHTML="";
+           errormessege3.innerHTML="";
+           errormessege4.innerHTML="";
+           result.innerHTML="";
+
+            
+            if(firstName===""){
+                errormessege1.innerHTML='Enter your first Name';
+            }
+           else  if(lastName===""){
+                errormessege2.innerHTML='Enter your LastName';
+                
+            }
+           else  if(Email===""){
+
+                errormessege3.innerHTML='Enter your Email';
+            }
+            else if(!Email.match(emailRegex)){
+                errormessege3.innerHTML='valid Email';
+            }
+       // Assuming phoneno is a variable containing the user's phone number
+       else if (isNaN(phoneno)) {
+    errormessege4.innerHTML = "Enter a valid phone number";
+}        else if (phoneno === "") {
+        errormessege4.innerHTML = "Enter your phone number";
+}
+        //    else  if (firstName !== "" && lastName !== "" && Email !== "" && Email.match(emailRegex) && phoneNo !== "") {
+        //         result.innerHTML = 'Form is valid!';
+        //     }e
+        else{
+
+
+            alert('foam Submit successfully');
+
+            localStorage.setItem('userData1', firstName);
+    localStorage.setItem('userData2', lastName);
+    localStorage.setItem('userData3', Email);
+    localStorage.setItem('userData4', phoneno);
+
+            document.getElementById('userData1').innerText=firstName;
+            document.getElementById('userData2').innerText=lastName;
+            document.getElementById('userData3').innerText=Email;
+            document.getElementById('userData4').innerText=phoneno;
+        }
+            
+            
+        }
+        
+    
+    </script>
+    
+</body>
+</html>
